@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="/update/{{ contact.usn }}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><input type="text" name="usn" required maxlength="50" value="{{ contact.usn }}"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="name" required maxlength="50" id="id_name" value="{{ contact.name }}"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="number" name="sem" required maxlength="50" id="id_sem" value="{{ contact.sem }}"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="number" name="phone" required maxlength="50" id="id_phone"
+                       value="{{ contact.phone }}"/></td>
+        </tr>
+        <tr>
+            <td><input type="email" name="email" required maxlength="50" id="id_email"
+                       value="{{ contact.email }}"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Update</button>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
+
+</body>
+</html>

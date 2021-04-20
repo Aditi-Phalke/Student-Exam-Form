@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="/add">
+    {% csrf_token %}
+
+    <label>USN </label>
+    <div>{{ form.usn }}</div>
+    <label>Name: </label>
+    <div>{{ form.name }}</div>
+    <label>Semester:</label>
+    <div> {{ form.sem }}</div>
+    <label>Phone:</label>
+    <div> {{ form.phone }}</div>
+    <label>Email:</label>
+    <div> {{ form.email }}</div>
+<br>
+    <div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+
+</form>
+<br>
+
+{% endblock %}
+
+</body>
+</html>
